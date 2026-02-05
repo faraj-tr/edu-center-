@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- ====================================
+       META TAGS - معلومات أساسية للصفحة
+       ==================================== -->
+  <meta charset="UTF-8">
+  <title>مركز إبداع التعليمي | التسجيل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="مركز إبداع التعليمي - نموذج تسجيل احترافي للطلاب من الصف الأول إلى التوجيهي">
+  <meta name="keywords" content="مركز تعليمي, تسجيل طلاب, دروس خصوصية, تعليم أونلاين">
+  <meta name="author" content="Edu Creativity Center">
+  
+  <!-- ====================================
+       EXTERNAL RESOURCES - الموارد الخارجية
+       ==================================== -->
+  <!-- خطوط Google Fonts العربية الفاخرة -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome لأيقونات احترافية -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- ملف التنسيقات الخارجي -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- ====================================
+       ANIMATED BACKGROUND - خلفية متحركة احترافية
+       ==================================== -->
+  <div class="animated-bg">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
+
+  <!-- ====================================
+       LOADING OVERLAY - شاشة التحميل
+       ==================================== -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- ====================================
+       CONFETTI CONTAINER - حاوية المفرقعات الاحتفالية
+       ==================================== -->
+  <div class="confetti-container" id="confettiContainer"></div>
+
+  <!-- ====================================
+       MAIN CONTAINER - الحاوية الرئيسية
+       ==================================== -->
+  <div class="container">
+    
+    <!-- ==================
+         HEADER - رأس الصفحة
+         ================== -->
+    <div class="header">
+      <!-- شعار المركز -->
+      <div class="logo-container">
+        <div class="logo-placeholder">
+          <img src="logo1.png" 
+               alt="مركز إبداع التعليمي" 
+               class="logo-image" 
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="logo-note" style="display: none;">
+            📌 ضع ملف الشعار في نفس مجلد الموقع<br>
+            وسمّه: <strong>logo1.png</strong><br>
+            (أو غيّر المسار في هذا السطر من الكود)
+          </div>
+        </div>
+      </div>
+      
+      <!-- عنوان المركز -->
+      <h1>مركز إبداع التعليمي</h1>
+      <p class="subtitle">من الصف الأول إلى التوجيهي</p>
+      <p class="tagline">ابدأ رحلتك التعليمية معنا وفق وقتك وأهدافك</p>
+    </div>
+
+    <!-- ====================================
+         FORM BOX - صندوق النموذج الرئيسي
+         ==================================== -->
+    <div class="form-box">
+      
+      <!-- شريط التقدم المحسّن -->
+      <div class="progress-container">
+        <div class="progress-steps">
+          <!-- الخطوة 1 -->
+          <div class="progress-step">
+            <div class="step-circle active" data-step="1">1</div>
+            <span class="step-label active">المعلومات الشخصية</span>
+          </div>
+          <!-- الخطوة 2 -->
+          <div class="progress-step">
+            <div class="step-circle" data-step="2">2</div>
+            <span class="step-label">الموقع والجنسية</span>
+          </div>
+          <!-- الخطوة 3 -->
+          <div class="progress-step">
+            <div class="step-circle" data-step="3">3</div>
+            <span class="step-label">الهدف والمستوى</span>
+          </div>
+          <!-- الخطوة 4 -->
+          <div class="progress-step">
+            <div class="step-circle" data-step="4">4</div>
+            <span class="step-label">التفاصيل والدفع</span>
+          </div>
+        </div>
+        <!-- شريط التقدم المتحرك -->
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBar" style="width: 25%"></div>
+        </div>
+      </div>
+
+      <!-- ====================================
+           MULTI-STEP FORM - النموذج متعدد الخطوات
+           ==================================== -->
+      <form id="eduForm" novalidate>
+        
+        <!-- ==================
+             STEP 1 - المعلومات الشخصية
+             ================== -->
+        <div class="step active" data-step="1">
+          <!-- الاسم الكامل -->
+          <div class="form-group">
+            <label>الاسم الكامل <span class="required">*</span></label>
+            <input type="text" name="fullName" id="fullName" required 
+                   placeholder="أدخل اسمك الكامل" minlength="3">
+            <div class="error-message" id="fullNameError">يرجى إدخال الاسم الكامل (3 أحرف على الأقل)</div>
+          </div>
+
+          <!-- رقم الهاتف مع رمز الدولة -->
+          <div class="form-group">
+            <label>رقم الهاتف (واتساب) <span class="required">*</span></label>
+            <div class="phone-group">
+              <select name="countryCode" id="countryCode" required>
+                <option value="+962">🇯🇴 الأردن (+962)</option>
+                <option value="+966">🇸🇦 السعودية (+966)</option>
+                <option value="+971">🇦🇪 الإمارات (+971)</option>
+                <option value="+20">🇪🇬 مصر (+20)</option>
+                <option value="+965">🇰🇼 الكويت (+965)</option>
+                <option value="+968">🇴🇲 عمان (+968)</option>
+                <option value="+974">🇶🇦 قطر (+974)</option>
+                <option value="+973">🇧🇭 البحرين (+973)</option>
+                <option value="+963">🇸🇾 سوريا (+963)</option>
+                <option value="+961">🇱🇧 لبنان (+961)</option>
+                <option value="+970">🇵🇸 فلسطين (+970)</option>
+                <option value="+964">🇮🇶 العراق (+964)</option>
+                <option value="+967">🇾🇪 اليمن (+967)</option>
+                <option value="+218">🇱🇾 ليبيا (+218)</option>
+                <option value="+216">🇹🇳 تونس (+216)</option>
+                <option value="+213">🇩🇿 الجزائر (+213)</option>
+                <option value="+212">🇲🇦 المغرب (+212)</option>
+                <option value="+249">🇸🇩 السودان (+249)</option>
+                <option value="+252">🇸🇴 الصومال (+252)</option>
+                <option value="+253">🇩🇯 جيبوتي (+253)</option>
+                <option value="+222">🇲🇷 موريتانيا (+222)</option>
+                <option value="+90">🇹🇷 تركيا (+90)</option>
+                <option value="+98">🇮🇷 إيران (+98)</option>
+                <option value="+93">🇦🇫 أفغانستان (+93)</option>
+                <option value="+92">🇵🇰 باكستان (+92)</option>
+                <option value="+880">🇧🇩 بنغلاديش (+880)</option>
+                <option value="+60">🇲🇾 ماليزيا (+60)</option>
+                <option value="+62">🇮🇩 إندونيسيا (+62)</option>
+                <option value="+1">🇺🇸 الولايات المتحدة (+1)</option>
+                <option value="+44">🇬🇧 المملكة المتحدة (+44)</option>
+                <option value="+33">🇫🇷 فرنسا (+33)</option>
+                <option value="+49">🇩🇪 ألمانيا (+49)</option>
+                <option value="+39">🇮🇹 إيطاليا (+39)</option>
+                <option value="+34">🇪🇸 إسبانيا (+34)</option>
+              </select>
+              <input type="tel" name="phone" id="phone" required 
+                     placeholder="7XXXXXXXX" pattern="[0-9]{7,15}">
+            </div>
+            <div class="error-message" id="phoneError">يرجى إدخال رقم هاتف صحيح (أرقام فقط، 7-15 رقم)</div>
+          </div>
+
+          <!-- البريد الإلكتروني -->
+          <div class="form-group">
+            <label>البريد الإلكتروني <span class="required">*</span></label>
+            <input type="email" name="email" id="email" required 
+                   placeholder="example@email.com">
+            <div class="error-message" id="emailError">يرجى إدخال بريد إلكتروني صحيح</div>
+          </div>
+
+          <!-- أزرار التنقل -->
+          <div class="button-group">
+            <button type="button" class="btn-next" data-next="2">التالي ←</button>
+          </div>
+        </div>
+
+        <!-- ==================
+             STEP 2 - الموقع والجنسية
+             ================== -->
+        <div class="step" data-step="2">
+          <!-- الجنسية -->
+          <div class="form-group">
+            <label>الجنسية <span class="required">*</span></label>
+            <select name="nationality" id="nationality" required>
+              <option value="">اختر جنسيتك</option>
+              <option value="أردني">أردني 🇯🇴</option>
+              <option value="سعودي">سعودي 🇸🇦</option>
+              <option value="إماراتي">إماراتي 🇦🇪</option>
+              <option value="مصري">مصري 🇪🇬</option>
+              <option value="كويتي">كويتي 🇰🇼</option>
+              <option value="عماني">عماني 🇴🇲</option>
+              <option value="قطري">قطري 🇶🇦</option>
+              <option value="بحريني">بحريني 🇧🇭</option>
+              <option value="سوري">سوري 🇸🇾</option>
+              <option value="لبناني">لبناني 🇱🇧</option>
+              <option value="فلسطيني">فلسطيني 🇵🇸</option>
+              <option value="عراقي">عراقي 🇮🇶</option>
+              <option value="يمني">يمني 🇾🇪</option>
+              <option value="ليبي">ليبي 🇱🇾</option>
+              <option value="تونسي">تونسي 🇹🇳</option>
+              <option value="جزائري">جزائري 🇩🇿</option>
+              <option value="مغربي">مغربي 🇲🇦</option>
+              <option value="سوداني">سوداني 🇸🇩</option>
+              <option value="صومالي">صومالي 🇸🇴</option>
+              <option value="جيبوتي">جيبوتي 🇩🇯</option>
+              <option value="موريتاني">موريتاني 🇲🇷</option>
+              <option value="تركي">تركي 🇹🇷</option>
+              <option value="إيراني">إيراني 🇮🇷</option>
+              <option value="أفغاني">أفغاني 🇦🇫</option>
+              <option value="باكستاني">باكستاني 🇵🇰</option>
+              <option value="بنغلاديشي">بنغلاديشي 🇧🇩</option>
+              <option value="ماليزي">ماليزي 🇲🇾</option>
+              <option value="إندونيسي">إندونيسي 🇮🇩</option>
+              <option value="أمريكي">أمريكي 🇺🇸</option>
+              <option value="بريطاني">بريطاني 🇬🇧</option>
+              <option value="فرنسي">فرنسي 🇫🇷</option>
+              <option value="ألماني">ألماني 🇩🇪</option>
+              <option value="إيطالي">إيطالي 🇮🇹</option>
+              <option value="إسباني">إسباني 🇪🇸</option>
+              <option value="أخرى">أخرى</option>
+            </select>
+            <div class="error-message" id="nationalityError">يرجى اختيار الجنسية</div>
+          </div>
+
+          <!-- بلد الإقامة -->
+          <div class="form-group">
+            <label>بلد الإقامة <span class="required">*</span></label>
+            <select name="country" id="country" required>
+              <option value="">اختر بلد الإقامة</option>
+              <option value="الأردن">الأردن 🇯🇴</option>
+              <option value="السعودية">السعودية 🇸🇦</option>
+              <option value="الإمارات">الإمارات 🇦🇪</option>
+              <option value="مصر">مصر 🇪🇬</option>
+              <option value="الكويت">الكويت 🇰🇼</option>
+              <option value="عمان">عمان 🇴🇲</option>
+              <option value="قطر">قطر 🇶🇦</option>
+              <option value="البحرين">البحرين 🇧🇭</option>
+              <option value="سوريا">سوريا 🇸🇾</option>
+              <option value="لبنان">لبنان 🇱🇧</option>
+              <option value="فلسطين">فلسطين 🇵🇸</option>
+              <option value="العراق">العراق 🇮🇶</option>
+              <option value="اليمن">اليمن 🇾🇪</option>
+              <option value="ليبيا">ليبيا 🇱🇾</option>
+              <option value="تونس">تونس 🇹🇳</option>
+              <option value="الجزائر">الجزائر 🇩🇿</option>
+              <option value="المغرب">المغرب 🇲🇦</option>
+              <option value="السودان">السودان 🇸🇩</option>
+              <option value="الصومال">الصومال 🇸🇴</option>
+              <option value="جيبوتي">جيبوتي 🇩🇯</option>
+              <option value="موريتانيا">موريتانيا 🇲🇷</option>
+              <option value="تركيا">تركيا 🇹🇷</option>
+              <option value="إيران">إيران 🇮🇷</option>
+              <option value="أفغانستان">أفغانستان 🇦🇫</option>
+              <option value="باكستان">باكستان 🇵🇰</option>
+              <option value="بنغلاديش">بنغلاديش 🇧🇩</option>
+              <option value="ماليزيا">ماليزيا 🇲🇾</option>
+              <option value="إندونيسيا">إندونيسيا 🇮🇩</option>
+              <option value="الولايات المتحدة">الولايات المتحدة 🇺🇸</option>
+              <option value="المملكة المتحدة">المملكة المتحدة 🇬🇧</option>
+              <option value="فرنسا">فرنسا 🇫🇷</option>
+              <option value="ألمانيا">ألمانيا 🇩🇪</option>
+              <option value="إيطاليا">إيطاليا 🇮🇹</option>
+              <option value="إسبانيا">إسبانيا 🇪🇸</option>
+              <option value="أخرى">أخرى</option>
+            </select>
+            <div class="error-message" id="countryError">يرجى اختيار بلد الإقامة</div>
+          </div>
+
+          <!-- المحافظة (ديناميكية حسب الدولة) -->
+          <div class="form-group" id="provinceGroup" style="display: none;">
+            <label>المحافظة / المنطقة <span class="required">*</span></label>
+            <select name="province" id="province">
+              <option value="">اختر المحافظة</option>
+            </select>
+            <div class="error-message" id="provinceError">يرجى اختيار المحافظة</div>
+          </div>
+
+          <!-- أزرار التنقل -->
+          <div class="button-group">
+            <button type="button" class="btn-prev" data-prev="1">→ السابق</button>
+            <button type="button" class="btn-next" data-next="3">التالي ←</button>
+          </div>
+        </div>
+
+        <!-- ==================
+             STEP 3 - الهدف والمستوى
+             ================== -->
+        <div class="step" data-step="3">
+          <!-- الهدف من الدراسة -->
+          <div class="form-group">
+            <label>هدفك من الدراسة <span class="required">*</span></label>
+            <select name="goal" id="goal" required>
+              <option value="">اختر هدفك</option>
+              <option value="دراسة">دراسة</option>
+              <option value="عمل">عمل</option>
+              <option value="محادثة">محادثة</option>
+              <option value="هجرة / سفر">هجرة / سفر</option>
+            </select>
+            <div class="error-message" id="goalError">يرجى اختيار الهدف</div>
+          </div>
+
+          <!-- المستوى الحالي -->
+          <div class="form-group">
+            <label>مستواك الحالي <span class="required">*</span></label>
+            <select name="level" id="level" required>
+              <option value="">اختر مستواك</option>
+              <option value="مبتدئ">مبتدئ</option>
+              <option value="متوسط">متوسط</option>
+              <option value="متقدم">متقدم</option>
+            </select>
+            <div class="error-message" id="levelError">يرجى اختيار المستوى</div>
+          </div>
+
+          <!-- أزرار التنقل -->
+          <div class="button-group">
+            <button type="button" class="btn-prev" data-prev="2">→ السابق</button>
+            <button type="button" class="btn-next" data-next="4">التالي ←</button>
+          </div>
+        </div>
+
+        <!-- ==================
+             STEP 4 - التفاصيل والدفع
+             ================== -->
+        <div class="step" data-step="4">
+          <!-- الأيام المفضلة -->
+          <div class="form-group">
+            <label>الأيام المفضلة <span class="required">*</span></label>
+            <select name="days" id="days" required>
+              <option value="">اختر الأيام المناسبة</option>
+              <option value="أحد – ثلاثاء – خميس">أحد – ثلاثاء – خميس</option>
+              <option value="اثنين – أربعاء">اثنين – أربعاء</option>
+              <option value="السبت">السبت</option>
+            </select>
+            <div class="error-message" id="daysError">يرجى اختيار الأيام</div>
+          </div>
+
+          <!-- الوقت المناسب -->
+          <div class="form-group">
+            <label>الوقت المناسب <span class="required">*</span></label>
+            <select name="time" id="time" required>
+              <option value="">اختر الوقت المناسب</option>
+              <option value="صباحي">صباحي</option>
+              <option value="مسائي">مسائي</option>
+            </select>
+            <div class="error-message" id="timeError">يرجى اختيار الوقت</div>
+          </div>
+
+          <!-- نوع البرنامج -->
+          <div class="form-group">
+            <label>نوع البرنامج <span class="required">*</span></label>
+            <select name="courseType" id="courseType" required>
+              <option value="">اختر نوع البرنامج</option>
+              <option value="دبلوم أونلاين">دبلوم أونلاين</option>
+              <option value="برايفت (خصوصي)">برايفت (خصوصي)</option>
+            </select>
+            <div class="error-message" id="courseTypeError">يرجى اختيار نوع البرنامج</div>
+          </div>
+
+          <!-- طريقة الدفع -->
+          <div class="form-group">
+            <label>طريقة الدفع <span class="required">*</span></label>
+            <select name="paymentMethod" id="paymentMethod" required>
+              <option value="">اختر طريقة الدفع</option>
+              <option value="تحويل بنكي">تحويل بنكي</option>
+              <option value="محفظة إلكترونية">محفظة إلكترونية</option>
+              <option value="نقدًا">نقدًا</option>
+            </select>
+            <div class="error-message" id="paymentMethodError">يرجى اختيار طريقة الدفع</div>
+          </div>
+
+          <!-- نظام الدفع -->
+          <div class="form-group">
+            <label>نظام الدفع <span class="required">*</span></label>
+            <select name="paymentPlan" id="paymentPlan" required>
+              <option value="">اختر نظام الدفع</option>
+              <option value="دفعة واحدة">دفعة واحدة</option>
+              <option value="دفعتين">دفعتين (قسطين)</option>
+            </select>
+            <div class="error-message" id="paymentPlanError">يرجى اختيار نظام الدفع</div>
+          </div>
+
+          <!-- أزرار التنقل -->
+          <div class="button-group">
+            <button type="button" class="btn-prev" data-prev="3">→ السابق</button>
+          </div>
+          
+          <!-- زر الإرسال النهائي -->
+          <button type="submit" class="btn-submit">✨ إرسال الطلب</button>
+        </div>
+      </form>
+
+      <!-- ====================================
+           THANK YOU PAGE - صفحة الشكر
+           ==================================== -->
+      <div class="thankyou-page" id="thankyouPage">
+        <div class="success-icon">✓</div>
+        <h2>تم استلام طلبك بنجاح! 🎉</h2>
+        <p>شكراً لثقتك في مركز إبداع التعليمي</p>
+        <p style="margin-top: 15px;">سيتواصل معك فريقنا المختص خلال 24 ساعة</p>
+      </div>
+    </div>
+
+    <!-- ====================================
+         CONTACT FOOTER - قسم التواصل
+         ==================================== -->
+    <div class="contact-footer">
+      <h3 class="contact-title">هل لديك استفسار؟ تواصل معنا الآن</h3>
+      <div class="contact-buttons">
+        <!-- زر واتساب -->
+        <a href="https://wa.me/962798681269" target="_blank" class="contact-btn contact-btn-whatsapp">
+          <span class="contact-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </span>
+          <span>واتساب</span>
+        </a>
+        
+        <!-- زر البريد الإلكتروني -->
+        <a href="mailto:info@ebdaacentre.com" class="contact-btn contact-btn-email">
+          <span class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span>البريد الإلكتروني</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ====================================
+         COPYRIGHT FOOTER - حقوق الملكية
+         ==================================== -->
+    <div class="copyright-footer">
+      <p>© 2026 Edu Creativity Center. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+
+  <!-- ====================================
+       JAVASCRIPT FILE - ملف البرمجة
+       ==================================== -->
+  <script src="script.js"></script>
+</body>
+</html>
